@@ -28,6 +28,8 @@ services:
     environment:
       - DISPLAY=unix$DISPLAY
       - XMODIFIERS=@im=ibus #中文输入 fcitx输入法：XMODIFIERS=@im=fcitx
+      - QT_IM_MODULE=ibus
+      - GTK_IM_MODULE=ibus
       - USER=peter # 以非root自定义账号运行，解决接收到的文件在挂载目录的权限问题
 ```
 或
@@ -38,6 +40,8 @@ services:
     -v "/home/peter/TencentFiles:/root/Tencent Files" \
     -e DISPLAY=unix$DISPLAY \
     -e XMODIFIERS=@im=ibus \
+    -e QT_IM_MODULE=ibus \
+    -e GTK_IM_MODULE=ibus \
     -e USER=peter \
     bestwu/qq:office
 ```
@@ -60,6 +64,8 @@ services:
     environment:
       - DISPLAY=unix$DISPLAY
       - XMODIFIERS=@im=ibus #中文输入 fcitx输入法：XMODIFIERS=@im=fcitx
+      - QT_IM_MODULE=ibus
+      - GTK_IM_MODULE=ibus
     command: /wine/xxx.exe
 ```
 
@@ -71,6 +77,8 @@ services:
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e DISPLAY=unix$DISPLAY \
     -e XMODIFIERS=@im=ibus \
+    -e QT_IM_MODULE=ibus \
+    -e GTK_IM_MODULE=ibus \
     bestwu/qq:office /wine/xxx.exe
 ```
 
