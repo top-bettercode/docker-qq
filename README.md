@@ -24,7 +24,7 @@ services:
       - /dev/snd #声音
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - /home/peter/TencentFiles:/root/Tencent Files
+      - /home/peter/TencentFiles:/TencentFiles
     environment:
       - DISPLAY=unix$DISPLAY
       - XMODIFIERS=@im=ibus #中文输入 fcitx输入法：XMODIFIERS=@im=fcitx
@@ -37,7 +37,7 @@ services:
 ```bash
     docker run -d --name qq --restart=always --device /dev/snd --net=host \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
-    -v "/home/peter/TencentFiles:/root/Tencent Files" \
+    -v /home/peter/TencentFiles:/TencentFiles \
     -e DISPLAY=unix$DISPLAY \
     -e XMODIFIERS=@im=ibus \
     -e QT_IM_MODULE=ibus \
