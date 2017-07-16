@@ -41,7 +41,6 @@ if [ "$1" ]; then
     deepin-wine $1
 else
     echo "启动 $APP"
-    printenv
     /run.sh
 fi
 
