@@ -8,7 +8,12 @@ RUN apt-get update && \
 
 VOLUME ["/TencentFiles"]
 
-ENV USER=root
+ENV APP=TIM \
+    USER=root \
+    AUDIO_GID=63 \
+    VIDEO_GID=39 \
+    GID=1000 \
+    UID=1000
 
 ADD entrypoint.sh /
 RUN chmod +x /entrypoint.sh
