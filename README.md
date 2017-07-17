@@ -27,10 +27,12 @@ services:
       - /home/peter/TencentFiles:/TencentFiles
     environment:
       - DISPLAY=unix$DISPLAY
-      - XMODIFIERS=@im=ibus #中文输入 fcitx输入法：XMODIFIERS=@im=fcitx
+      - XMODIFIERS=@im=ibus #中文输入
       - QT_IM_MODULE=ibus
       - GTK_IM_MODULE=ibus
-      - USER=peter # 以非root自定义账号运行，解决接收到的文件在挂载目录的权限问题
+      - AUDIO_GID=63 # 主机audio gid 解决声音设备访问权限问题
+      - GID=1000 # 主机当前用户 gid 解决挂载目录访问权限问题
+      - UID=1000 # 主机当前用户 uid 解决挂载目录访问权限问题
 ```
 或
 
@@ -42,7 +44,9 @@ services:
     -e XMODIFIERS=@im=ibus \
     -e QT_IM_MODULE=ibus \
     -e GTK_IM_MODULE=ibus \
-    -e USER=peter \
+    -e AUDIO_GID=63 \
+    -e GID=1000 \
+    -e UID=1000 \
     bestwu/qq:office
 ```
 
