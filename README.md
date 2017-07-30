@@ -85,19 +85,4 @@ services:
 ```
 
 
-### 开机启动
 
-重启后 xhost + 失效的解决方法
-
-禁用docker的自动重启
-
-```bash
-systemctl disable docker
-
-```
-在xsession中添加启动脚本
-
-```bash
-xhost +
-echo 'sudopassword' |sudo -S  systemctl start docker
-```
