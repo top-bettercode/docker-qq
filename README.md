@@ -18,7 +18,6 @@ services:
   qq:
     image: bestwu/qq:office
     container_name: qq
-    network_mode: "host"
     devices:
       - /dev/snd #声音
     volumes:
@@ -36,7 +35,7 @@ services:
 或
 
 ```bash
-    docker run -d --name qq --device /dev/snd --net=host \
+    docker run -d --name qq --device /dev/snd \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /home/peter/TencentFiles:/TencentFiles \
     -e DISPLAY=unix$DISPLAY \
@@ -54,10 +53,9 @@ services:
 ```yml
 version: '2'
 services:
-  qq:
+  xxx:
     image: bestwu/qq:office
-    container_name: qq
-    network_mode: "host"
+    container_name: xxx
     devices:
       - /dev/snd #声音
     volumes:
@@ -74,7 +72,7 @@ services:
 或
 
 ```bash
-    docker run -d --name qq --device /dev/snd --net=host \
+    docker run -d --name xxx --device /dev/snd \
     -v `pwd`/wine:/wine \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e DISPLAY=unix$DISPLAY \
