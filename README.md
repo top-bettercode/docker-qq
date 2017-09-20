@@ -1,5 +1,8 @@
+### Supported tags
 
-镜像包含wine,可使用此镜像运行其他wine程序
+* im ([QQ](https://github.com/bestwu/docker-qq/blob/master/im/Dockerfile))
+* light,latest ([QQLight](https://github.com/bestwu/docker-qq/blob/master/im.light/Dockerfile))
+* office ([TIM](https://github.com/bestwu/docker-qq/blob/master/office/Dockerfile))
 
 ### 准备工作
 
