@@ -7,7 +7,6 @@ if [ $UID != $(echo `id -u qq`) ]; then
     usermod -o -u $UID qq
 fi
 chown -R qq:qq /TencentFiles
-chown -R qq:qq /home/qq
 
 su qq <<EOF
 if [ "$1" ]; then
