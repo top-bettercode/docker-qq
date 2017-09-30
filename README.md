@@ -11,9 +11,22 @@
 ```bash
     xhost +
 ```
+
+## 查看系统audio gid
+
+```bash
+  cat /etc/group | grep audio
+```
+
+fedora 26 结果：
+
+```bash
+audio:x:63:
+```
+
 ### 运行QQ
 
-### docker-compose 
+### docker-compose
 
 ```yml
 version: '2'
@@ -35,6 +48,7 @@ services:
       - GID=1000 # 可选 默认1000 主机当前用户 gid 解决挂载目录访问权限问题
       - UID=1000 # 可选 默认1000 主机当前用户 uid 解决挂载目录访问权限问题
 ```
+
 或
 
 ```bash
@@ -60,7 +74,7 @@ services:
     image: bestwu/qq:office
     container_name: xxx
     devices:
-      - /dev/snd #声音
+      - /dev/snd
     volumes:
       - ./wine:/wine
       - /tmp/.X11-unix:/tmp/.X11-unix
@@ -84,6 +98,3 @@ services:
     -e GTK_IM_MODULE=fcitx \
     bestwu/qq:office /wine/xxx.exe
 ```
-
-
-
