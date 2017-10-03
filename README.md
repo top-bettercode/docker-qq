@@ -65,6 +65,39 @@ services:
     bestwu/qq:office
 ```
 
+### 界面未显示异常
+
+如果界面未显示，运行：
+
+```bash
+docker logs qq
+```
+
+如果出现如下错误：
+
+```bash
+X Error of failed request： BadAccess （attempt access private resource ***）
+ Major opcode of failed request：130（MIT-SHM)
+```
+
+这是因为本地的linux中默认开启了“MIT-SHM”共享X进程内存的功能，禁用该共享功能即可。
+
+具体操作：
+
+```bash
+vi /etc/X11/xorg.conf
+```
+
+增加：
+
+```bash
+ Section "Extensions"
+     Option "MIT-SHM" "Disable"
+ EndSection
+```
+
+重启系统
+
 ### 运行其他wine 程序
 
 ```yml
