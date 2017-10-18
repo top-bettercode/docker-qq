@@ -80,8 +80,8 @@ docker-compose up -d
     -e GTK_IM_MODULE=fcitx \
     -e AUDIO_GID=`getent group audio | cut -d: -f3` \
     -e VIDEO_GID=`getent group video | cut -d: -f3` \
-    -e GID=$GID \
-    -e UID=$UID \
+    -e GID=`id -g` \
+    -e UID=`id -u` \
     bestwu/qq:office
 ```
 
