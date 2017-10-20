@@ -1,3 +1,5 @@
+[![Docker Image](https://img.shields.io/badge/docker%20image-available-green.svg)](https://hub.docker.com/r/bestwu/qq/)
+
 ### Supported tags
 
 * im ([QQ](https://github.com/bestwu/docker-qq/blob/master/im/Dockerfile))
