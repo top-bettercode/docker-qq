@@ -1,4 +1,5 @@
 [![Docker Image](https://img.shields.io/badge/docker%20image-available-green.svg)](https://hub.docker.com/r/bestwu/qq/)
+[![Image Layers and Size](https://images.microbadger.com/badges/image/bestwu/qq.svg)](http://microbadger.com/images/bestwu/qq)
 
 ### Supported tags
 
