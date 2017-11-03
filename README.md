@@ -1,6 +1,9 @@
 [![Docker Image](https://img.shields.io/badge/docker%20image-available-green.svg)](https://hub.docker.com/r/bestwu/qq/)
 [![Image Layers and Size](https://images.microbadger.com/badges/image/bestwu/qq.svg)](http://microbadger.com/images/bestwu/qq)
 
+
+本镜像基于[深度操作系统](https://www.deepin.org/download/)
+
 ### Supported tags
 
 * im ([QQ](https://github.com/bestwu/docker-qq/blob/master/im/Dockerfile))
