@@ -114,7 +114,9 @@ docker rm qq
 docker rm -f qq
 ```
 
-### 界面未显示异常
+### 已知问题
+
+* 界面未显示异常
 
 如果界面未显示，运行：
 
@@ -147,37 +149,50 @@ vi /etc/X11/xorg.conf
 
 重启系统
 
-### 运行其他wine 程序
+* 无声音
+
+请尝试以下配置
 
 ```yml
 version: '2'
 services:
-  xxx:
+  qq:
     image: bestwu/qq:office
-    container_name: xxx
-    devices:
-      - /dev/snd
+    container_name: qq
     volumes:
-      - ./wine:/wine
       - /tmp/.X11-unix:/tmp/.X11-unix
+      - /run/user/1000/pulse/native:/run/user/1000/pulse/native
+      - /home/peter/TencentFiles:/TencentFiles
     environment:
       - DISPLAY=unix$DISPLAY
-      - XMODIFIERS=@im=fcitx
+      - PULSE_SERVER=unix:/run/user/1000/pulse/native
+      - XDG_RUNTIME_DIR=/run/user/1000
       - QT_IM_MODULE=fcitx
+      - XMODIFIERS=@im=fcitx
       - GTK_IM_MODULE=fcitx
-    command: /wine/xxx.exe
+      - AUDIO_GID=63 # 可选 默认63（fedora） 主机audio gid 解决声音设备访问权限问题
+      - GID=$GID # 可选 默认1000 主机当前用户 gid 解决挂载目录访问权限问题
+      - UID=$UID # 可选 默认1000 主机当前用户 uid 解决挂载目录访问权限问题
 ```
 
-或
-
 ```bash
-  docker run -d --name xxx \
-    --device /dev/snd \
-    -v `pwd`/wine:/wine \
+  docker run -d --name qq \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native \
+    -v $HOME/TencentFiles:/TencentFiles \
     -e DISPLAY=unix$DISPLAY \
     -e XMODIFIERS=@im=fcitx \
     -e QT_IM_MODULE=fcitx \
     -e GTK_IM_MODULE=fcitx \
-    bestwu/qq:office /wine/xxx.exe
+    -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native \
+    -e XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR} \
+    -e GID=`id -g` \
+    -e UID=`id -u` \
+    bestwu/qq:office
 ```
+
+* KDE桌面无法显示界面，未解决
+
+* 检测不到摄像头，不能视频
+
+* （TIM）同意加好友申请后崩溃，只能重启QQ
