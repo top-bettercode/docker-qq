@@ -126,7 +126,7 @@ docker logs qq
 
 如果出现如下错误：
 
-```bash
+```log
 X Error of failed request： BadAccess （attempt access private resource ***）
  Major opcode of failed request：130（MIT-SHM)
 ```
@@ -195,4 +195,10 @@ services:
 
 * 检测不到摄像头，不能视频
 
-* （TIM）同意加好友申请后崩溃，只能重启QQ
+* （TIM）同意加好友申请后崩溃
+
+* Wayland 显示服务器，截图功能异常
+
+* 无法直接点击打开链接
+
+* 无法拖拽发送文件。使用挂载目录方式，点击发送文件按钮，选择文件
