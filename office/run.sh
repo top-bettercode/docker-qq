@@ -7,7 +7,7 @@
 
 WINEPREFIX="$HOME/.deepinwine/Deepin-TIM"
 APPDIR="/opt/deepinwine/apps/Deepin-TIM"
-APPVER="1.0.4deepin4"
+APPVER="2.0.0deepin1"
 APPTAR="files.7z"
 PACKAGENAME="deepin.com.qq.office"
 
@@ -28,6 +28,11 @@ CallApp()
         env WINEPREFIX="$BASE_DIR" $WINE_CMD reg ADD "$1" /v "$2" /t $3 /d "$4"
         }
 
+        _DeleteRegistry()
+        {
+        env WINEPREFIX="$BASE_DIR" $WINE_CMD reg DELETE "$1" /f
+        }
+
         _SetOverride()
         {
         _SetRegistryValue 'HKCU\Software\Wine\DllOverrides' "$2" REG_SZ "$1"
@@ -37,6 +42,9 @@ CallApp()
         /opt/deepinwine/tools/add_hotkeys
         rm $BASE_DIR/drive_c/deepin/first
         fi
+
+        #disable Tencent MiniBrowser
+        _DeleteRegistry "HKCU\\Software\\Tencent\\MiniBrowser"
 
         env WINEPREFIX="$BASE_DIR" $WINE_CMD "c:\\Program Files\\Tencent\\TIM\\Bin\\TIM.exe"
         
