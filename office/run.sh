@@ -44,7 +44,7 @@ CallApp()
         fi
 
         #disable Tencent MiniBrowser
-        _DeleteRegistry "HKCU\\Software\\Tencent\\MiniBrowser"
+        # _DeleteRegistry "HKCU\\Software\\Tencent\\MiniBrowser"
 
         env WINEPREFIX="$BASE_DIR" $WINE_CMD "c:\\Program Files\\Tencent\\TIM\\Bin\\TIM.exe"
         
