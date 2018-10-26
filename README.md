@@ -10,6 +10,7 @@
 * im ([QQ](https://github.com/bestwu/docker-qq/blob/master/im/Dockerfile))
 * light,latest ([QQLight](https://github.com/bestwu/docker-qq/blob/master/im.light/Dockerfile))
 * office ([TIM](https://github.com/bestwu/docker-qq/blob/master/office/Dockerfile))
+* eim ([EIM](https://github.com/bestwu/docker-qq/blob/master/eim/Dockerfile))
 
 ### 准备工作
 
