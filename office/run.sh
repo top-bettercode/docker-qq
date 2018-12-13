@@ -53,7 +53,7 @@ CallApp()
                 then
                         echo "退出"
                 else
-                        sleep 5
+                        sleep 60
                         _exist $1
                 fi 
         }
