@@ -22,7 +22,8 @@ RUN groupadd -o -g $GID qq && \
     useradd -d "/home/qq" -m -o -u $UID -g qq -G audio,video qq && \
     mkdir /TencentFiles && \
     chown -R qq:qq /TencentFiles && \
-    ln -s "/TencentFiles" "/home/qq/Tencent Files"
+    ln -s "/TencentFiles" "/home/qq/Tencent Files" && \
+    sed -i 's/QQ.exe" &/QQ.exe"/g' "/opt/deepinwine/tools/run.sh"
 
 VOLUME ["/TencentFiles"]
 

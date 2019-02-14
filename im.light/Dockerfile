@@ -22,7 +22,9 @@ RUN groupadd -o -g $GID qq && \
     useradd -d "/home/qq" -m -o -u $UID -g qq -G audio,video qq && \
     mkdir /TencentFiles && \
     chown -R qq:qq /TencentFiles && \
-    ln -s "/TencentFiles" "/home/qq/Tencent Files"
+    ln -s "/TencentFiles" "/home/qq/Tencent Files" && \
+    sed -i 's/CallApp$/sed -i "s\/QQ.exe\\" \&\/QQ.exe\\"\/g" "\/home\/qq\/.deepinwine\/Deepin-QQLight\/drive_c\/deepin\/EnvInit.sh"\n 	rm \/home\/qq\/.deepinwine\/Deepin-QQLight\/drive_c\/deepin\/first\n        CallApp\n/g' "/opt/deepinwine/apps/Deepin-$APP/run.sh"
+
 
 VOLUME ["/TencentFiles"]
 
