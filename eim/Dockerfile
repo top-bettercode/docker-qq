@@ -10,7 +10,7 @@ RUN apt-get update && \
     find /usr/share/doc -type f -delete && \
     find /usr/share/man -type f -delete
 
-ENV APP=EIM \
+ENV APP=QQEIM \
     AUDIO_GID=63 \
     VIDEO_GID=39 \
     GID=1000 \
@@ -27,7 +27,5 @@ RUN groupadd -o -g $GID qq && \
 VOLUME ["/TencentFiles"]
 
 ADD entrypoint.sh /
-ADD run.sh /
-RUN chmod +x /entrypoint.sh && \
-    chmod +x /run.sh
+RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

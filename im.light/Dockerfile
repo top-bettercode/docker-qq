@@ -27,7 +27,5 @@ RUN groupadd -o -g $GID qq && \
 VOLUME ["/TencentFiles"]
 
 ADD entrypoint.sh /
-ADD run.sh /
-RUN chmod +x /entrypoint.sh && \
-    chmod +x /run.sh
+RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

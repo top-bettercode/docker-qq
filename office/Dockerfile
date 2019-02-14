@@ -2,7 +2,7 @@ FROM bestwu/wine:i386
 LABEL maintainer='Peter Wu <piterwu@outlook.com>'
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends deepin.com.qq.office && \
+    apt-get install -y --no-install-recommends deepin.com.qq.office dbus-x11 && \
     apt-get -y autoremove --purge && apt-get autoclean -y && apt-get clean -y && \
     find /var/lib/apt/lists -type f -delete && \
     find /var/cache -type f -delete && \
@@ -27,7 +27,5 @@ RUN groupadd -o -g $GID qq && \
 VOLUME ["/TencentFiles"]
 
 ADD entrypoint.sh /
-ADD run.sh /
-RUN chmod +x /entrypoint.sh && \
-    chmod +x /run.sh
+RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
