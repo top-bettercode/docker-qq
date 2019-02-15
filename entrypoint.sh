@@ -19,11 +19,8 @@ su qq <<EOF
 EOF
 
 #tail -fn 0 /home/qq/.deepinwine/.QQ_run
-echo $(pgrep QQProtect.exe | wc -l ) 
-sleep 300
 while [ $(pgrep QQProtect.exe | wc -l ) -ne 0 ]
 do
-    echo $(pgrep QQProtect.exe | wc -l )
     sleep 60
 done
 echo "退出"
