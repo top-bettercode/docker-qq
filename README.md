@@ -80,12 +80,12 @@ docker-compose up -d
 ```bash
   docker run -d --name qq \
     --device /dev/snd \
-    -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v $HOME/TencentFiles:/TencentFiles \
-    -e DISPLAY=unix$DISPLAY \
+	-v /tmp/.X11-unix:/tmp/.X11-unix \
     -e XMODIFIERS=@im=fcitx \
     -e QT_IM_MODULE=fcitx \
     -e GTK_IM_MODULE=fcitx \
+    -e DISPLAY=unix$DISPLAY \
     -e AUDIO_GID=`getent group audio | cut -d: -f3` \
     -e VIDEO_GID=`getent group video | cut -d: -f3` \
     -e GID=`id -g` \
@@ -178,15 +178,15 @@ services:
 
 ```bash
   docker run -d --name qq \
-    -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native \
     -v $HOME/TencentFiles:/TencentFiles \
-    -e DISPLAY=unix$DISPLAY \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e XMODIFIERS=@im=fcitx \
     -e QT_IM_MODULE=fcitx \
     -e GTK_IM_MODULE=fcitx \
     -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native \
     -e XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR} \
+    -e DISPLAY=unix$DISPLAY \
     -e GID=`id -g` \
     -e UID=`id -u` \
     bestwu/qq:office
