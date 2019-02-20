@@ -16,6 +16,7 @@ su qq <<EOF
    mkdir -p /home/qq/.deepinwine
    touch /home/qq/.deepinwine/.QQ_run
    "/opt/deepinwine/apps/Deepin-$APP/run.sh"
+   sleep 300
 EOF
 
 #tail -fn 0 /home/qq/.deepinwine/.QQ_run
