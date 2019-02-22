@@ -20,7 +20,7 @@ su qq <<EOF
 EOF
 
 #tail -fn 0 /home/qq/.deepinwine/.QQ_run
-while [ $(pgrep QQProtect.exe | wc -l ) -ne 0 ]
+while test -n "`pidof QQProtect.exe`"
 do
     sleep 60
 done
