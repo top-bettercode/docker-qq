@@ -192,7 +192,16 @@ services:
     bestwu/qq:office
 ```
 
-* KDE桌面无法显示界面，未解决
+* 非gnome桌面无法显示界面
+
+```
+X Error of failed request:  BadWindow (invalid Window parameter)
+  Major opcode of failed request:  20 (X_GetProperty)
+  Resource id in failed request:  0x0
+  Serial number of failed request:  10
+  Current serial number in output stream:  10
+```
+解决方法：安装gnome-settings-daemon，然后运行/usr/lib/gsd-xsettings
 
 * 检测不到摄像头，不能视频
 
