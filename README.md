@@ -40,6 +40,26 @@ $ getent group video | cut -d: -f3
 44
 ```
 
+### 更新
+
+进入docker容器：docker exec -it qq bash
+运行以下命令更新深度软件包：
+
+```bash
+apt-get update
+
+
+# 更新企业版
+# apt-get install -y deepin.com.qq.b.eim 
+# 更新QQ
+apt-get install -y deepin.com.qq.im
+# 更新轻聊版
+# apt-get install -y deepin.com.qq.im.light 
+# 更新TIM
+# apt-get install -y deepin.com.qq.office
+
+```
+
 ### 运行QQ
 
 #### docker-compose
