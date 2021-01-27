@@ -2,7 +2,7 @@ FROM bestwu/wine:i386
 LABEL maintainer='Peter Wu <piterwu@outlook.com>'
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends deepin.com.qq.b.eim && \
+    apt-get install -y --no-install-recommends procps deepin.com.qq.b.eim && \
     apt-get -y autoremove --purge && apt-get autoclean -y && apt-get clean -y && \
     find /var/lib/apt/lists -type f -delete && \
     find /var/cache -type f -delete && \
