@@ -72,6 +72,7 @@ services:
   qq:
     image: bestwu/qq:office
     container_name: qq
+    ipc: host
     devices:
       - /dev/snd #声音
     volumes:
@@ -99,7 +100,7 @@ docker-compose up -d
 
 ```bash
   docker run -d --name qq \
-    --device /dev/snd \
+    --device /dev/snd --ipc="host"\
     -v $HOME/TencentFiles:/TencentFiles \
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
     -e XMODIFIERS=@im=fcitx \
