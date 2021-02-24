@@ -76,7 +76,7 @@ services:
       - /dev/snd #声音
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - $HOME/TencentFiles:/TencentFiles
+      - /home/peter/TencentFiles:/TencentFiles #使用自己的用户路径
     environment:
       - DISPLAY=unix$DISPLAY
       - XMODIFIERS=@im=fcitx #中文输入
