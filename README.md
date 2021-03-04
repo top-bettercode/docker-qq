@@ -7,10 +7,10 @@
 
 ### Supported tags
 
-* im ([QQ](https://github.com/bestwu/docker-qq/blob/master/im/Dockerfile))
-* light,latest ([QQLight](https://github.com/bestwu/docker-qq/blob/master/im.light/Dockerfile))
-* office ([TIM](https://github.com/bestwu/docker-qq/blob/master/office/Dockerfile))
-* eim ([EIM](https://github.com/bestwu/docker-qq/blob/master/eim/Dockerfile))
+* im ([QQ 9.1.8](https://github.com/bestwu/docker-qq/blob/master/im/Dockerfile))
+* light,latest ([QQLight 7.9](https://github.com/bestwu/docker-qq/blob/master/im.light/Dockerfile))
+* office ([TIM 2.0](https://github.com/bestwu/docker-qq/blob/master/office/Dockerfile))
+* eim ([EIM 1.9](https://github.com/bestwu/docker-qq/blob/master/eim/Dockerfile))
 
 ### 准备工作
 
